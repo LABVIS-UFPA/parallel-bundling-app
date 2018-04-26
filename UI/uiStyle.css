@@ -1,0 +1,146 @@
+button.floatButton{
+    background-color: limegreen;
+    border-radius: 50%;
+    border: none;
+    text-shadow: 2px 2px black;
+    box-shadow: 2px 2px black;
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 350px;
+    right: 230px;
+}
+button.floatButton:active{
+    background-color: green;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    height: 60px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -250px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 95%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.icon.btn{
+    float: right;
+}
+.icon.btn:hover{
+    color: black;
+    background-color: #ccc;
+}
+
+.btnGenerator{
+    font-size: 17px;
+    line-height: 0px;
+    margin-left: 7px;
+    vertical-align: middle;
+}
+
+.rightSidebar{
+    float: right;
+}
+
+.previewPanel{
+    bottom: 30px;
+    width: 100%;
+    height: 239px;
+    background-color: #f5f5f4;
+    border: 1px #e0e0e0;
+    border-top-style: solid;
+    position: relative;
+    margin-top: 30px;
+}
+
+.canvas{
+    overflow-y: hidden;
+    height: 100%;
+    outline: 1px solid #ccc;
+    background: white;
+}
+
+#generatorPropertiesForm{
+    padding: 10px;
+}
+#generatorPropertiesForm label{
+    display: inline;
+}
+
+#generatorPropertiesDiv{
+    position: absolute;
+    bottom: 28px;
+    top: 80px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    right: 5px;
+    left: 5px;
+}
+
+#propertiesTable td {
+    padding: 0px;
+}
+#propertiesTable tr > td:not(:first-child) {
+    padding-left: 5px;
+}
+
+#propertiesTable tr:not(:first-child) > td{
+    padding-top: 5px;
+}
+
+label.inlineForProperties{
+    margin-left: 5px;
+    display: inline;
+}
+input.inlineForProperties, select.inlineForProperties{
+    width: 175px;
+}
+
+input.smallInput, select.smallInput{
+    height: 22px;
+    min-height: 22px;
+    padding: 0px 5px;
+}
+input.smallInput:focus, select.smallInput:focus{
+    box-shadow: none;
+}
+
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+select[disabled]{
+    opacity: 0.5;
+}
+
+
+td.columnGen td{
+    padding: 2px 0px;
+}
+
+td.columnGen > * {
+    vertical-align: middle;
+}

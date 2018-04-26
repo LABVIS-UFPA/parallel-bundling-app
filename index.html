@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Data Generator</title>
+      <!--<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>-->
+      <link rel="stylesheet" href="photon-0.1.2-dist/css/photon.min.css">
+      <link rel="stylesheet" href="UI/uiStyle.css">
+      <link rel="stylesheet" href="UI/previewStyle.css">
+      <link rel="stylesheet" href="UI/chips.css">
+      <link rel="stylesheet" href="lib/contextMenu/jquery.contextMenu.min.css">
+
+      <!--<script src="photon-0.1.2-dist/template-app/js/menu.js" charset="utf-8"></script>-->
+      <script src="UI/tippy.all.min.js"></script>
+      <script src="lib/underscore-min.js"></script>
+  </head>
+  <body>
+  <div class="window">
+
+    <!-- .toolbar-header sits at the top of your app -->
+
+    <!-- Your app's content goes inside .window-content -->
+    <div class="window-content">
+      <div class="pane-group">
+        <div class="pane pane-sm sidebar">
+          <nav id="modelsPane" class="nav-group">
+            <h5 class="nav-group-title">Models</h5>
+          </nav>
+        </div>
+
+        <div id="summaryTablePane" class="pane">
+          <table style="width: 100%" id="tableCollumn" class="table-striped">
+              <colgroup>
+                  <col span="1" style="width: 5%;">
+                  <col span="1" style="width: 5%;">
+                  <col span="1" style="width: 10%;">
+                  <col span="1" style="width: 10%;">
+                  <col span="1" style="width: 40%;">
+                  <col span="1" style="width: 5%;">
+              </colgroup>
+            <thead id="thead">
+            <tr>
+              <th><input id="checkboxAllColumns" type="checkbox"></th>
+              <th>Order</th>
+              <th>Title</th>
+              <th>Data Type</th>
+              <th>Generator (Generation Sequence <span class="icon icon-left-thin"></span>)</span></th>
+              <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+          </table>
+          <button onclick="addGenerator()" class="floatButton">
+            <span  style="font-size: 200%; color: white" class="icon icon-plus"></span>
+          </button>
+        </div>
+
+        <div class="pane pane-sm sidebar rightSidebar">
+          <h5 class="nav-group-title">Generator Properties</h5>
+
+          <form>
+                <label class="inlineForProperties">
+                  Type:
+                  <select id="selectGeneratorType" class="form-control inlineForProperties" disabled>
+                  </select>
+                </label>
+          </form>
+
+          <div id="generatorPropertiesDiv">
+            Properties
+            <form id="generatorPropertiesForm">
+            </form>
+          </div>
+        </div>
+
+        <div style="display: none" id="resultTablePane" class="pane">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="previewPanel">
+      <h5 class="nav-group-title">Preview
+        <span id="hidePreview" class="icon btn icon-down-thin"></span>
+        <span id="reloadPreview" class="icon btn icon-arrows-ccw"></span>
+      </h5>
+      <div class="canvas"></div>
+    </div>
+
+    <footer class="toolbar toolbar-footer">
+      <div class="toolbar-actions">
+        <span id="showPreview" style="float: left; background-color: #ccc; color: black;"><span class="icon btn icon-chart-line"> Preview</span></span>
+        <div class="btn-group pull-right">
+          <button id="generateButton" onclick="generateDatas()" class="btn btn-primary">
+            Generate
+          </button>
+          <button id="btnConfigGeneration" class="btn btn-primary tooltip">
+            <span style="color: white" class="icon icon-cog"></span>
+          </button>
+          <span class="tooltiptext">
+            Generate &nbsp;
+            <input id="rowsQtInput" style="color: black; width: 20%;" type="number" value=100>
+            &nbsp; Rows
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Insert this line above script imports -->
+  <script>
+      if (typeof module === 'object') {
+          window.module = module;
+          module = undefined;
+      }
+  </script>
+  <script src="lib/jquery-3.2.1.min.js"></script>
+  <script src="lib/d3.min.js"></script>
+  <script src="lib/contextMenu/jquery.contextMenu.js"></script>
+  <script src="lib/contextMenu/jquery.ui.position.min.js"></script>
+  <script>if (window.module) module = window.module;</script>
+
+  <!--<script src="datagen/datagen.js"></script>-->
+  <script src="UI/uiLogic.js"></script>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js');
+
+    showGenerators();
+  </script>
+  </body>
+</html>
